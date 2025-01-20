@@ -6,8 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		11BF4CBA2D3DD4FA00A1F027 /* .gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB92D3DD4F400A1F027 /* .gitignore */; };
+		11BF4CBD2D3DD71F00A1F027 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 11BF4CBC2D3DD71F00A1F027 /* Alamofire */; };
+		11BF4CC02D3DD72900A1F027 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 11BF4CBF2D3DD72900A1F027 /* SnapKit */; };
+		11BF4CC32D3DD73000A1F027 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 11BF4CC22D3DD73000A1F027 /* Then */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		11BF4CA12D3DD43600A1F027 /* FifthWeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FifthWeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11BF4CB92D3DD4F400A1F027 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BF4CBD2D3DD71F00A1F027 /* Alamofire in Frameworks */,
+				11BF4CC32D3DD73000A1F027 /* Then in Frameworks */,
+				11BF4CC02D3DD72900A1F027 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +56,7 @@
 		11BF4C982D3DD43600A1F027 = {
 			isa = PBXGroup;
 			children = (
+				11BF4CB92D3DD4F400A1F027 /* .gitignore */,
 				11BF4CA32D3DD43600A1F027 /* FifthWeek */,
 				11BF4CA22D3DD43600A1F027 /* Products */,
 			);
@@ -78,6 +90,9 @@
 			);
 			name = FifthWeek;
 			packageProductDependencies = (
+				11BF4CBC2D3DD71F00A1F027 /* Alamofire */,
+				11BF4CBF2D3DD72900A1F027 /* SnapKit */,
+				11BF4CC22D3DD73000A1F027 /* Then */,
 			);
 			productName = FifthWeek;
 			productReference = 11BF4CA12D3DD43600A1F027 /* FifthWeek.app */;
@@ -107,6 +122,11 @@
 			);
 			mainGroup = 11BF4C982D3DD43600A1F027;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				11BF4CBB2D3DD71F00A1F027 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				11BF4CBE2D3DD72900A1F027 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				11BF4CC12D3DD73000A1F027 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 11BF4CA22D3DD43600A1F027 /* Products */;
 			projectDirPath = "";
@@ -132,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BF4CBA2D3DD4FA00A1F027 /* .gitignore in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,11 +169,11 @@
 				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FifthWeek/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "오주";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -160,9 +181,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sean.SeSAC.FifthWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -176,11 +201,11 @@
 				DEVELOPMENT_TEAM = W43DLLFB4Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FifthWeek/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "오주";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -188,9 +213,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sean.SeSAC.FifthWeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -335,6 +364,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11BF4CBB2D3DD71F00A1F027 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		11BF4CBE2D3DD72900A1F027 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		11BF4CC12D3DD73000A1F027 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11BF4CBC2D3DD71F00A1F027 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11BF4CBB2D3DD71F00A1F027 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		11BF4CBF2D3DD72900A1F027 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11BF4CBE2D3DD72900A1F027 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		11BF4CC22D3DD73000A1F027 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11BF4CC12D3DD73000A1F027 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11BF4C992D3DD43600A1F027 /* Project object */;
 }
