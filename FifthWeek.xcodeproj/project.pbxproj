@@ -19,7 +19,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		11BF4CB32D3DD43800A1F027 /* Exceptions for "FifthWeek" folder in "FifthWeek" target */ = {
+		1165BBEE2D3F1FA80075279F /* Exceptions for "FifthWeek" folder in "FifthWeek" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -32,7 +32,7 @@
 		11BF4CA32D3DD43600A1F027 /* FifthWeek */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				11BF4CB32D3DD43800A1F027 /* Exceptions for "FifthWeek" folder in "FifthWeek" target */,
+				1165BBEE2D3F1FA80075279F /* Exceptions for "FifthWeek" folder in "FifthWeek" target */,
 			);
 			path = FifthWeek;
 			sourceTree = "<group>";

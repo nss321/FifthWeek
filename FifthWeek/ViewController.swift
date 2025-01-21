@@ -45,7 +45,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
-        ConcurrentASync()
+//        ConcurrentASync()
+//        example()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +57,61 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         print(#function)
     }
+    
+    func example() {
+        print("START")
+        DispatchQueue.global(qos: .userInteractive).async {
+            for i in 1...100 {
+                print(i, terminator: " ")
+            }
+        }
+        print("====1111====")
+        DispatchQueue.global(qos: .background).async {
+            for i in 101...200 {
+                print(i, terminator: " ")
+            }
+        }
+        print("====2222====")
+        DispatchQueue.global().async {
+            for i in 201...300 {
+                print(i, terminator: " ")
+            }
+        }
+        print("END")
+    }
+    
+    
+    // Dispatch Group
+    func example2() {
+        
+        let group = DispatchGroup()
+        
+        print("START")
+        DispatchQueue.global().async(group: group) {
+            for i in 1...100 {
+                print(i, terminator: " ")
+            }
+        }
+        print("====1111====")
+        DispatchQueue.global().async(group: group) {
+            for i in 101...200 {
+                print(i, terminator: " ")
+            }
+        }
+        print("====2222====")
+        DispatchQueue.global().async(group: group) {
+            for i in 201...300 {
+                print(i, terminator: " ")
+            }
+        }
+        print("END")
+        
+        group.notify(queue: .global()) {
+            print("번호 끝!")
+        }
+    }
+    
+    
     
     func serialSync() {
         print("START", terminator: " ")
@@ -155,21 +211,52 @@ class ViewController: UIViewController {
             
             
             // 이렇게 호출을 Serialization 하면 속도는 오래걸리지만, 작업의 종료 시점을 명확히 알 수 있음.
-            NetworkManager.shared.fetchImage { image in
+//            NetworkManager.shared.fetchImage { image in
+//                print("firstImageView Succeed")
+//                self.firstImageView.image = image
+//                NetworkManager.shared.fetchImage { image in
+//                    print("secondImageView Succeed")
+//                    self.secondImageView.image = image
+//                    NetworkManager.shared.fetchImage { image in
+//                        print("thirdImageView Succeed")
+//                        self.thirdImageView.image = image
+//                        print("Rmx!")
+//                    }
+//                }
+//            }
+            let group = DispatchGroup()
+            group.enter() // +1
+            NetworkManager.shared.fetchImage { [self] image in
+                firstImageView.image = image
                 print("firstImageView Succeed")
-                self.firstImageView.image = image
-                NetworkManager.shared.fetchImage { image in
-                    print("secondImageView Succeed")
-                    self.secondImageView.image = image
-                    NetworkManager.shared.fetchImage { image in
-                        print("thirdImageView Succeed")
-                        self.thirdImageView.image = image
-                        print("Rmx!")
-                    }
-                }
+                group.leave() // -1
+            }
+            group.enter() // +1
+            NetworkManager.shared.fetchImage { [self] image in
+                secondImageView.image = image
+                print("secondImageView Succeed")
+                group.leave() // -1
+            }
+            group.enter() // +1
+            NetworkManager.shared.fetchImage { [self] image in
+                thirdImageView.image = image
+                print("thirdImageView Succeed")
+                group.leave() // -1
             }
             
-            print(#function, "END")
+
+            
+            // 동기함수에서 동작함. -> main thread에서 돌아가는 녀석들에게만 효과있음
+            // 메인스레드를 기다리지 않음.
+            // 반복문, 동기적으로 실행되는 녀석들 외에는 그다지 적절하지 않음.
+            
+            // 이 외의 경우는 enter/leave를 이요함.
+            // +- 0가 되면 notify! Reference Count와 유사하게 동작한다고 함!
+            group.notify(queue: .main) {
+                print(#function, "End")
+            }
+
+            
         }), for: .touchUpInside)
     }
     
