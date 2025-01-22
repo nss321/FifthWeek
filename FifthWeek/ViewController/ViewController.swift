@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     let firstImageView = {
         let view = UIImageView()

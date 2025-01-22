@@ -15,3 +15,4 @@ struct RandomPhoto: Decodable {
 struct RandomPhotoURL: Decodable {
     let thumb: String
 }
+

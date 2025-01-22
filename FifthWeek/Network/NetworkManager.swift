@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NetworkManager {
+class NetworkManager: AnyObject {
     static let shared = NetworkManager()
     
     static let url = URL(string: "https://picsum.photos/200/300")
