@@ -10,7 +10,7 @@ import Alamofire
 
 // 연관값! Associated Value!
 enum UnsplashRequest {
-    case randomPhoto
+    case randomPhoto(count: Int = 1)
     case topic(id: String)
     case photo(query: String)
     
@@ -20,8 +20,8 @@ enum UnsplashRequest {
     
     var endpoint: URL {
         switch self {
-        case .randomPhoto:
-            return URL(string: self.baseURL + "photos/random")!
+        case .randomPhoto(let count):
+            return URL(string: self.baseURL + "photos/random?count=\(count)")!
         case .topic(let id):
             return URL(string: self.baseURL + "topics/\(id)")!
         case .photo(let query):
@@ -49,6 +49,28 @@ class PhotoManager {
     private init() { }
     
     func getRandomPhoto(api: UnsplashRequest,
+                        completion: @escaping ([RandomPhoto]) -> (),
+                        failHandler: @escaping () -> ()
+    ) {
+        AF.request(api.endpoint,
+                   method: api.method,
+                   parameters: api.parameter,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header)
+            .validate(statusCode: 200..<500)
+            .responseDecodable(of: [RandomPhoto].self) { response in
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                    completion(value)
+                case .failure(let error):
+                    print(error)
+                    failHandler()
+                }
+            }
+    }
+    
+    func getRandomPhotoList(api: UnsplashRequest,
                         completion: @escaping (RandomPhoto) -> (),
                         failHandler: @escaping () -> ()
     ) {
@@ -69,6 +91,8 @@ class PhotoManager {
                 }
             }
     }
+    
+    
     
     func callRequest(api: UnsplashRequest,
                    completion: @escaping (RandomPhoto) -> (),

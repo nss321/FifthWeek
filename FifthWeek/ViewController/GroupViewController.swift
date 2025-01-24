@@ -84,7 +84,7 @@ final class GroupViewController: UIViewController {
          self.navigationController의 self랑은 다름!
          */
         PhotoManager.self.shared.example2(
-            api: .randomPhoto,
+            api: .randomPhoto(),
             type: RandomPhoto.self) { value in
                 dump(value)
             } failHandler: {
